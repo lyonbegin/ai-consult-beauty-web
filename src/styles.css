@@ -143,3 +143,171 @@ code {
     grid-template-columns: 1fr;
   }
 }
+
+
+.controlPanel,
+.jobsPanel {
+  margin-bottom: 28px;
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  background: white;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.sectionHeading h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.controlGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.controlGrid label {
+  display: grid;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.controlGrid input,
+.controlGrid select {
+  width: 100%;
+  min-height: 44px;
+  padding: 10px 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 10px;
+  background: white;
+  color: #111827;
+}
+
+.wideField {
+  grid-column: span 2;
+}
+
+.helperText,
+.errorText,
+.emptyText {
+  margin: 14px 0 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.errorText {
+  color: #b91c1c;
+}
+
+.runButton,
+.secondaryButton {
+  border: 0;
+  border-radius: 10px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.runButton {
+  margin-top: 18px;
+  min-height: 46px;
+  padding: 0 20px;
+  background: #111827;
+  color: white;
+}
+
+.runButton:disabled {
+  opacity: 0.55;
+  cursor: wait;
+}
+
+.secondaryButton {
+  min-height: 40px;
+  padding: 0 14px;
+  background: #f3f4f6;
+  color: #111827;
+}
+
+.jobList {
+  display: grid;
+  gap: 12px;
+}
+
+.jobRow {
+  padding: 16px;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fafafa;
+}
+
+.jobTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.jobRow details {
+  margin-top: 10px;
+}
+
+.jobRow summary {
+  cursor: pointer;
+  color: #4b5563;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.jobRow pre {
+  overflow: auto;
+  max-height: 280px;
+  padding: 12px;
+  border-radius: 10px;
+  background: #111827;
+  color: #f9fafb;
+  font-size: 12px;
+}
+
+.job-queued {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.job-running {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.job-succeeded {
+  background: #ecfdf5;
+  color: #047857;
+}
+
+.job-failed {
+  background: #fef2f2;
+  color: #b91c1c;
+}
+
+@media (max-width: 720px) {
+  .sectionHeading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .controlGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .wideField {
+    grid-column: auto;
+  }
+}

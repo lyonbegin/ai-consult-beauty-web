@@ -32,6 +32,19 @@ export type Job = {
   finished_at: string | null;
 };
 
+export type HospitalConfig = {
+  hira_service_key_configured: boolean;
+  hira_endpoint: string;
+  beauty_departments: Record<string, string>;
+};
+
+export type HospitalStats = {
+  total_hospitals: number;
+  beauty_hospitals: number;
+  plastic_surgery: number;
+  dermatology: number;
+};
+
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${API_BASE_URL}${path}`, {
     ...init,
@@ -47,7 +60,7 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
       const body = await response.json();
       detail = body.detail || detail;
     } catch {
-      // ignore JSON parsing failure
+      // ignore JSON parse failure
     }
     throw new Error(detail);
   }
@@ -78,6 +91,14 @@ export function createJob(
       params,
     }),
   });
+}
+
+export function fetchHospitalConfig(): Promise<HospitalConfig> {
+  return request<HospitalConfig>("/api/hospitals/config");
+}
+
+export function fetchHospitalStats(): Promise<HospitalStats> {
+  return request<HospitalStats>("/api/hospitals/stats");
 }
 
 export { API_BASE_URL };

@@ -6,181 +6,81 @@
   text-rendering: optimizeLegibility;
 }
 
-* {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; min-height: 100vh; }
+button, input, select, textarea { font: inherit; }
 
 .page {
-  width: min(1120px, calc(100% - 32px));
+  width: min(1180px, calc(100% - 32px));
   margin: 0 auto;
-  padding: 72px 0;
+  padding: 64px 0;
 }
 
-.hero {
-  max-width: 780px;
-  margin-bottom: 40px;
-}
+.hero { max-width: 860px; margin-bottom: 36px; }
+.eyebrow { margin: 0 0 10px; font-size: 12px; font-weight: 800; letter-spacing: .13em; }
+h1 { margin: 0; font-size: clamp(42px, 7vw, 74px); line-height: .98; letter-spacing: -.05em; }
+.lead { margin: 22px 0 0; font-size: 19px; line-height: 1.65; color: #4b5563; }
 
-.eyebrow {
-  margin: 0 0 12px;
-  font-size: 13px;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-}
-
-h1 {
-  margin: 0;
-  font-size: clamp(40px, 7vw, 76px);
-  line-height: 0.98;
-  letter-spacing: -0.05em;
-}
-
-.lead {
-  margin: 24px 0 0;
-  font-size: 20px;
-  line-height: 1.6;
-  color: #4b5563;
-}
-
-.statusPanel {
+.statusPanel,
+.controlPanel,
+.jobsPanel {
   display: grid;
   gap: 12px;
-  padding: 20px;
-  margin-bottom: 28px;
+  padding: 22px;
+  margin-bottom: 24px;
   border: 1px solid #e5e7eb;
   border-radius: 18px;
   background: white;
 }
 
-.statusPanel > div {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
+.statusPanel > div { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
 .status {
   display: inline-flex;
   align-items: center;
   min-height: 26px;
   padding: 3px 10px;
   border-radius: 999px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.status.ok {
-  background: #ecfdf5;
-  color: #065f46;
-}
-
-.status.pending {
-  background: #fff7ed;
-  color: #9a3412;
-}
-
-code {
-  overflow-wrap: anywhere;
-  color: #374151;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-}
-
-.card {
-  min-height: 190px;
-  padding: 24px;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  background: white;
-}
-
-.card h2 {
-  margin: 18px 0 10px;
-  font-size: 24px;
-  letter-spacing: -0.03em;
-}
-
-.card p {
-  margin: 0;
-  color: #6b7280;
-  line-height: 1.6;
-}
-
-.badge {
-  display: inline-flex;
-  padding: 4px 9px;
-  border-radius: 999px;
-  background: #111827;
-  color: white;
   font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
+  font-weight: 800;
 }
+.status.ok { background: #ecfdf5; color: #065f46; }
+.status.pending { background: #fff7ed; color: #9a3412; }
+code { overflow-wrap: anywhere; color: #374151; }
 
-@media (max-width: 720px) {
-  .page {
-    padding: 40px 0;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
 }
-
-
-.controlPanel,
-.jobsPanel {
-  margin-bottom: 28px;
-  padding: 24px;
+.statsGrid article {
+  padding: 20px;
   border: 1px solid #e5e7eb;
-  border-radius: 20px;
+  border-radius: 16px;
   background: white;
 }
+.statsGrid span { display: block; color: #6b7280; font-size: 13px; font-weight: 700; }
+.statsGrid strong { display: block; margin-top: 7px; font-size: 32px; letter-spacing: -.04em; }
 
 .sectionHeading {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  margin-bottom: 20px;
 }
-
-.sectionHeading h2 {
-  margin: 0;
-  font-size: 28px;
-  letter-spacing: -0.03em;
-}
+.sectionHeading h2 { margin: 0; font-size: 28px; letter-spacing: -.03em; }
 
 .controlGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
-
 .controlGrid label {
   display: grid;
   gap: 8px;
   font-size: 13px;
   font-weight: 800;
 }
-
 .controlGrid input,
 .controlGrid select {
   width: 100%;
@@ -191,22 +91,7 @@ code {
   background: white;
   color: #111827;
 }
-
-.wideField {
-  grid-column: span 2;
-}
-
-.helperText,
-.errorText,
-.emptyText {
-  margin: 14px 0 0;
-  color: #6b7280;
-  line-height: 1.5;
-}
-
-.errorText {
-  color: #b91c1c;
-}
+.wideField { grid-column: span 2; }
 
 .runButton,
 .secondaryButton {
@@ -215,99 +100,53 @@ code {
   font-weight: 800;
   cursor: pointer;
 }
-
 .runButton {
-  margin-top: 18px;
+  width: fit-content;
+  min-width: 140px;
   min-height: 46px;
+  margin-top: 6px;
   padding: 0 20px;
   background: #111827;
   color: white;
 }
+.runButton:disabled { opacity: .45; cursor: not-allowed; }
+.secondaryButton { min-height: 40px; padding: 0 14px; background: #f3f4f6; color: #111827; }
 
-.runButton:disabled {
-  opacity: 0.55;
-  cursor: wait;
-}
+.errorText,
+.emptyText { margin: 2px 0; color: #6b7280; line-height: 1.5; }
+.errorText { color: #b91c1c; }
 
-.secondaryButton {
-  min-height: 40px;
-  padding: 0 14px;
-  background: #f3f4f6;
-  color: #111827;
-}
-
-.jobList {
-  display: grid;
-  gap: 12px;
-}
-
+.jobList { display: grid; gap: 12px; }
 .jobRow {
   padding: 16px;
   border: 1px solid #e5e7eb;
   border-radius: 14px;
   background: #fafafa;
 }
-
-.jobTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
-}
-
-.jobRow details {
-  margin-top: 10px;
-}
-
-.jobRow summary {
-  cursor: pointer;
-  color: #4b5563;
-  font-size: 13px;
-  font-weight: 700;
-}
-
+.jobTop { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.jobRow details { margin-top: 10px; }
+.jobRow summary { cursor: pointer; color: #4b5563; font-size: 13px; font-weight: 700; }
 .jobRow pre {
   overflow: auto;
-  max-height: 280px;
+  max-height: 340px;
   padding: 12px;
   border-radius: 10px;
   background: #111827;
   color: #f9fafb;
   font-size: 12px;
 }
+.job-queued { background: #eff6ff; color: #1d4ed8; }
+.job-running { background: #fff7ed; color: #c2410c; }
+.job-succeeded { background: #ecfdf5; color: #047857; }
+.job-failed { background: #fef2f2; color: #b91c1c; }
 
-.job-queued {
-  background: #eff6ff;
-  color: #1d4ed8;
+@media (max-width: 860px) {
+  .statsGrid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .controlGrid { grid-template-columns: 1fr 1fr; }
 }
-
-.job-running {
-  background: #fff7ed;
-  color: #c2410c;
-}
-
-.job-succeeded {
-  background: #ecfdf5;
-  color: #047857;
-}
-
-.job-failed {
-  background: #fef2f2;
-  color: #b91c1c;
-}
-
-@media (max-width: 720px) {
-  .sectionHeading {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .controlGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .wideField {
-    grid-column: auto;
-  }
+@media (max-width: 620px) {
+  .page { padding: 36px 0; }
+  .statsGrid, .controlGrid { grid-template-columns: 1fr; }
+  .wideField { grid-column: auto; }
+  .sectionHeading { align-items: flex-start; flex-direction: column; }
 }
